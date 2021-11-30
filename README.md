@@ -1,0 +1,2 @@
+# Identify-Masked-Face
+This is a facial identification project for the EN.540.635 “Software Carpentry”. People need to maintain a certain social distance within the ongoing global pandemic of COVID-19, people have to wear mask. So in our project, we create a platform where the identification of masked face is possible.   Group member: 1. Bo Chao, bchao4@jh.edu, pkocattoss  2. Ziying Xu, zxu92@jh.edu, HoffOFHoff
