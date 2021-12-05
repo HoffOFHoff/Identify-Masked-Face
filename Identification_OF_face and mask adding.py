@@ -51,3 +51,11 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     chin_right_point = facelandmarks[0][15]
     chin_bottom_point = facelandmarks[0][8]
     chin_bottom_vector = np.array(chin_bottom_point)
+
+    # We split the mask into left and right and give a factor to stretch the mask
+    # to make it suit the face better
+    width = mask_pic.width
+    height = mask_pic.height
+    width_ration = 1.5  # Factor for testing
+    # Obtaining the distance between the point on the nose and the point at the bottom of the chin
+    new_height = int(np.linalg.norm(nose_vector - chin_bottom_vector))
