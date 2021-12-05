@@ -1,5 +1,6 @@
 import face_recognition
 from PIL import Image, ImageDraw
+import numpy as np
 
 # Load the jpg file and use face_recognition to get the numpy type
 image = face_recognition.load_image_file("test.jpeg")
