@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw
 import numpy as np
 
 # Load the jpg file and use face_recognition to get the numpy type
-image = face_recognition.load_image_file("test1.png")
+image = face_recognition.load_image_file("test3.png")
 
 # Find facial features with landmarks function
 face_landmarks_list = face_recognition.face_landmarks(image)
@@ -39,7 +39,7 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     """
 
     # We load in the mask and the person's photo
-    ori_img_dir = "test1.png"
+    ori_img_dir = "test3.png"
     mask_img_dir = "surgical.png"
     face_pic = Image.open(ori_img_dir)
     mask_pic = Image.open(mask_img_dir)
@@ -113,5 +113,5 @@ def get_distance_from_point_to_line(point, line1, line2):
 
 
 if __name__ == '__main__':
-    mask_img(ori_img_dir="test1.png", mask_img_dir="surgical.png",
+    mask_img(ori_img_dir="test3.png", mask_img_dir="surgical.png",
              facelandmarks=facelandmarks)
