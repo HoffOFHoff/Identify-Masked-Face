@@ -45,17 +45,73 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     mask_pic = Image.open(mask_img_dir)
 
     # Obtaining the key points of chin and nose to put on a mask
-    nose_point = facelandmarks[3][1]
-    nose_vector = np.array(nose_point)
-    chin_left_point = facelandmarks[0][1]
-    chin_right_point = facelandmarks[0][15]
-    chin_bottom_point = facelandmarks[0][8]
-    chin_bottom_vector = np.array(chin_bottom_point)
+    nose = facelandmarks[3][1]
+    nose_vector = np.array(nose)
+    chin_left = facelandmarks[0][0]
+    chin_right = facelandmarks[0][16]
+    chin_bottom = facelandmarks[0][8]
+    chin_bottom_vector = np.array(chin_bottom)
 
-    # We split the mask into left and right and give a factor to stretch the mask
+    # We split the mask into left and right and give a factor 
+    # to stretch the mask
     # to make it suit the face better
     width = mask_pic.width
     height = mask_pic.height
     width_ration = 1.5  # Factor for testing
     # Obtaining the distance between the point on the nose and the point at the bottom of the chin
     new_height = int(np.linalg.norm(nose_vector - chin_bottom_vector))
+
+    # We adjust the left part of the mask，The width is the left point to the middleline * Stretch factor
+    mask_left_img = mask_pic.crop((0, 0, width // 2, height))
+    # Obtaining the width from the left point to the middleline
+    mask_left_width = get_distance_from_point_to_line(
+        chin_left, nose, chin_bottom)
+    mask_left_width = int(mask_left_width * width_ration)
+    mask_left_img = mask_left_img.resize((mask_left_width, new_height))
+
+    # We adjust the right part of the mask，The width is the right point to the middleline * Stretch factor
+    mask_right_img = mask_pic.crop((width // 2, 0, width, height))
+    # Obtaining the width from the right point to the middleline
+    mask_right_width = get_distance_from_point_to_line(
+        chin_right, nose, chin_bottom)
+    mask_right_width = int(mask_right_width * width_ration)
+    mask_right_img = mask_right_img.resize((mask_right_width, new_height))
+
+    # Combine two mask parts
+    size = (mask_left_img.width + mask_right_img.width, new_height)
+    mask_pic_emp = Image.new('RGBA', size)
+    mask_pic_emp.paste(mask_left_img, (0, 0), mask_left_img)
+    mask_pic_emp.paste(
+        mask_right_img, (mask_left_img.width, 0), mask_right_img)
+
+    # Mask rotation
+    angle = np.arctan2(
+        chin_bottom[1] - nose[1], chin_bottom[0] - nose[0])
+    rotated_mask_pic_emp = mask_pic_emp.rotate(angle, expand=True)
+
+    # We place the mask to the appropriate position
+    center_x = (nose[0] + chin_bottom[0]) // 2
+    center_y = (nose[1] + chin_bottom[1]) // 2
+
+    Compensation = mask_pic_emp.width // 2 - mask_left_img.width
+    radian = angle * np.pi / 180
+    box_x = center_x + int(Compensation * np.cos(radian)) - \
+        rotated_mask_pic_emp.width // 2
+    box_y = center_y + int(Compensation * np.sin(radian)) - \
+        rotated_mask_pic_emp.height // 2
+
+    # Adding the mask to the picture
+    face_pic.paste(mask_pic_emp, (int(box_x), int(box_y)), mask_pic_emp)
+    face_pic.show()
+    return face_pic
+
+
+def get_distance_from_point_to_line(point, line1, line2):
+    distance = np.abs((line2[1] - line1[1]) * point[0] + (line1[0] - line2[0]) * point[1] + (line2[0] - line1[0]) * line1[1] + (line1[1] -
+                                                                                                                               line2[1]) * line1[0]) / np.sqrt((line2[1] - line1[1]) * (line2[1] - line1[1]) + (line1[0] - line2[0]) * (line1[0] - line2[0]))
+    return int(distance)
+
+
+if __name__ == '__main__':
+    mask_img(ori_img_dir="test3.png", mask_img_dir="surgical.png",
+             facelandmarks=facelandmarks)
