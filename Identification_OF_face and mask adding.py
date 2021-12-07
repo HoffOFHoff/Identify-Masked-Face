@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw
 import numpy as np
 
 # Load the jpg file and use face_recognition to get the numpy type
-image = face_recognition.load_image_file("test.jpeg")
+image = face_recognition.load_image_file("test3.png")
 
 # Find facial features with landmarks function
 face_landmarks_list = face_recognition.face_landmarks(image)
@@ -47,8 +47,8 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     # Obtaining the key points of chin and nose to put on a mask
     nose = facelandmarks[3][1]
     nose_vector = np.array(nose)
-    chin_left = facelandmarks[0][0]
-    chin_right = facelandmarks[0][16]
+    chin_left = facelandmarks[0][1]
+    chin_right = facelandmarks[0][15]
     chin_bottom = facelandmarks[0][8]
     chin_bottom_vector = np.array(chin_bottom)
 
@@ -57,7 +57,7 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     # to make it suit the face better
     width = mask_pic.width
     height = mask_pic.height
-    width_ration = 1.5  # Factor for testing
+    width_ration = 1.3  # Factor for testing
     # Obtaining the distance between the point on the nose and the point at the bottom of the chin
     new_height = int(np.linalg.norm(nose_vector - chin_bottom_vector))
 
