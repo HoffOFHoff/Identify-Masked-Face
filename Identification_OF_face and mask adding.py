@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw
 import numpy as np
 
 # Load the jpg file and use face_recognition to get the numpy type
-image = face_recognition.load_image_file("test3.png")
+image = face_recognition.load_image_file("test1.png")
 
 # Find facial features with landmarks function
 face_landmarks_list = face_recognition.face_landmarks(image)
@@ -15,9 +15,9 @@ signal = ImageDraw.Draw(marked_face)
 
 # Show the location of each facial feature in this image
 for face_landmarks in face_landmarks_list:
-    for facial_feature in face_landmarks.keys():
-        print("The {} in this face has the following points: {}".format(
-            facial_feature, face_landmarks[facial_feature]))
+    # for facial_feature in face_landmarks.keys():
+    #     print("The {} in this face has the following points: {}".format(
+    #         facial_feature, face_landmarks[facial_feature]))
 
     # Let's trace out each facial feature in the image with a line!
     for facial_feature in face_landmarks.keys():
@@ -39,10 +39,15 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     """
 
     # We load in the mask and the person's photo
-    ori_img_dir = "test3.png"
-    mask_img_dir = "surgical.png"
+    # ori_img_dir = "test3.png"
+    # mask_img_dir = "surgical.png"
     face_pic = Image.open(ori_img_dir)
     mask_pic = Image.open(mask_img_dir)
+
+    if ".png" in ori_img_dir:
+        face_name = ori_img_dir.split(".png")[0]
+    if ".png" in mask_img_dir:
+        mask_type = mask_img_dir.split(".png")[0]
 
     # Obtaining the key points of chin and nose to put on a mask
     nose = facelandmarks[3][1]
@@ -52,7 +57,7 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     chin_bottom = facelandmarks[0][8]
     chin_bottom_vector = np.array(chin_bottom)
 
-    # We split the mask into left and right and give a factor 
+    # We split the mask into left and right and give a factor
     # to stretch the mask
     # to make it suit the face better
     width = mask_pic.width
@@ -103,15 +108,31 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     # Adding the mask to the picture
     face_pic.paste(mask_pic_emp, (int(box_x), int(box_y)), mask_pic_emp)
     face_pic.show()
+    print("here it is %s, with mask is %s" % (face_name, mask_type))
+    face_pic.save("%s_%s.png" % (face_name, mask_type))
     return face_pic
 
 
 def get_distance_from_point_to_line(point, line1, line2):
     distance = np.abs((line2[1] - line1[1]) * point[0] + (line1[0] - line2[0]) * point[1] + (line2[0] - line1[0]) * line1[1] + (line1[1] -
-                                                                                                                               line2[1]) * line1[0]) / np.sqrt((line2[1] - line1[1]) * (line2[1] - line1[1]) + (line1[0] - line2[0]) * (line1[0] - line2[0]))
+                                                                                                                                line2[1]) * line1[0]) / np.sqrt((line2[1] - line1[1]) * (line2[1] - line1[1]) + (line1[0] - line2[0]) * (line1[0] - line2[0]))
     return int(distance)
 
 
 if __name__ == '__main__':
-    mask_img(ori_img_dir="test3.png", mask_img_dir="surgical.png",
+    # mask_img(ori_img_dir="test3.png", mask_img_dir="surgical.png",
+    #          facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir="test3.png", mask_img_dir="cloth.png",
+    #          facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir="test3.png", mask_img_dir="surgical_green.png",
+    #          facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir="test3.png", mask_img_dir="N95.png",
+    #          facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir="test3.png", mask_img_dir="surgical_blue.png",
+    #          facelandmarks=facelandmarks)
+    mask_img(ori_img_dir="test1.png", mask_img_dir="JHU_Mask_1.png",
+             facelandmarks=facelandmarks)
+    mask_img(ori_img_dir="test1.png", mask_img_dir="JHU_Mask_2.png",
+             facelandmarks=facelandmarks)
+    mask_img(ori_img_dir="test1.png", mask_img_dir="JHU_Mask_3.png",
              facelandmarks=facelandmarks)
