@@ -42,6 +42,11 @@ pip install pytesseract
 pip install torch torchvision
 pip install python-utils
 ```
+We also require
+dlib==19.17.0
+numpy==1.21.3
+scikit-image==0.18.3
+pandas==1.3.4
 
 # Support Information
 
