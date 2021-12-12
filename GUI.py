@@ -106,11 +106,9 @@ class Face_Register:
         folders_path = os.listdir(self.path_photos)
         for i in range(len(folders_path)):
             shutil.rmtree(self.path_photos + folders_path[i])
-        if os.path.isfile("data/features_all.csv"):
-            os.remove("data/features_all.csv")
         self.label_faceinstorage['text'] = "0"
         self.existing_faces_cnt = 0
-        self.log_total["text"] = "Photos and their`.csv` files are removed!"
+        self.log_total["text"] = "Photos files are removed!"
 
     def save_current_photo(self):
         if self.face_folder_created_flag:
@@ -191,10 +189,10 @@ class Face_Register:
 
         self.frame_right.pack()
 
-        # 新建保存人脸图像文件和数据 CSV 文件夹 / Mkdir for saving photos and csv
+        # Mkdir for saving photos
     
     def Folders(self):
-        # Create folders to save face images and csv
+        # Create folders to save face images
         if os.path.isdir(self.path_photos):
             pass
         else:
@@ -202,9 +200,9 @@ class Face_Register:
 
     # If there are already people registered in the folder start from person_x+1
     def check_existing_faces_cnt(self):
-        if os.listdir("data/data_faces_from_camera/"):
+        if os.listdir("data/faces_from_camera/"):
             # Obtain the number of latest person
-            person_list = os.listdir("data/data_faces_from_camera/")
+            person_list = os.listdir("data/faces_from_camera/")
             person_num_list = []
             for person in person_list:
                 person_order = person.split('_')[1].split('_')[0]
