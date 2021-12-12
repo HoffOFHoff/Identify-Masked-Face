@@ -136,7 +136,7 @@ class Face_Register:
             else:
                 self.log_total["text"] = "No face in frame!"
         else:
-            self.log_total["text"] = "Please register in step 2first!"
+            self.log_total["text"] = "Please register in step 2 first!"
 
     def GUI_info(self):
         tk.Label(self.frame_right,
