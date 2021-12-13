@@ -113,7 +113,7 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     face_pic.paste(mask_pic_emp, (int(box_x), int(box_y)), mask_pic_emp)
     face_pic.show()
     print("here it is %s, with mask is %s" % (face_name, mask_type))
-    face_pic.save(os.path.join('data/faces/', "%s_%s" %
+    face_pic.save(os.path.join('data/Masked_faces/', "%s_%s" %
                                (face_name, mask_type) + ".png"))
     return face_pic
 
@@ -125,14 +125,14 @@ def get_distance_from_point_to_line(point, line1, line2):
 
 
 if __name__ == '__main__':
-    mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/surgical.png",
-             facelandmarks=facelandmarks)
-    mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/cloth.png",
-             facelandmarks=facelandmarks)
-    # mask_img(ori_img_dir="test2.png", mask_img_dir="surgical_green.png",
+    # mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/surgical.png",
     #          facelandmarks=facelandmarks)
-    # mask_img(ori_img_dir="test2.png", mask_img_dir="N95.png",
+    # mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/cloth.png",
     #          facelandmarks=facelandmarks)
+    mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/surgical_green.png",
+             facelandmarks=facelandmarks)
+    mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/N95.png",
+             facelandmarks=facelandmarks)
     # mask_img(ori_img_dir="test2.png", mask_img_dir="surgical_blue.png",
     #          facelandmarks=facelandmarks)
     # mask_img(ori_img_dir="test2.png", mask_img_dir="JHU_Mask_1.png",
