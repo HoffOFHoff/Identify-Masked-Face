@@ -6,7 +6,7 @@ import re
 
 # Load the png file and use face_recognition to get the numpy type
 image = face_recognition.load_image_file(
-    os.path.join('data/faces/', "img_face_3.png"))
+    os.path(glob.glob('data/faces_from_camera/'+'\*.png')))
 # image = face_recognition.load_image_file("test2.png")
 
 # Find facial features with landmarks function
@@ -49,7 +49,7 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     mask_pic = Image.open(mask_img_dir)
 
     if ".png" in ori_img_dir:
-        face_name = re.split("[/.]", ori_img_dir)[-2]
+        face_name = re.split("[/.]", ori_img_dir)[-3]
     if ".png" in mask_img_dir:
         mask_type = re.split("[/.]", mask_img_dir)[-2]
 
@@ -125,6 +125,7 @@ def get_distance_from_point_to_line(point, line1, line2):
 
 
 if __name__ == '__main__':
+    
     mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/surgical.png",
              facelandmarks=facelandmarks)
     mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/cloth.png",
