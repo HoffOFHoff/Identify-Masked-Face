@@ -10,12 +10,24 @@ from skimage import transform,data
 from skimage import io
 from PIL import Image
 
+list_of_user = glob.glob(r"data/faces_from_camera/*/*.png")
+# print(list_of_user)
+# print(list_of_user[0])
+# print(list_of_user[1])
+img_path = list_of_user[0]
+img_real_path = list_of_user[1]
+print(img_path)
+print(img_real_path)
+list_of_artificial_user = glob.glob(r"data/Masked_faces/*.png")
+img_mask_path = list_of_artificial_user[0]
+print(img_mask_path)
 
-img = io.imread('data/faces_from_camera/person_1_111/img_face_1.png')
+
+img = io.imread(img_path)
 (x,y,z)=img.shape
-img_mask = io.imread('data/Masked_faces/person_1_111_surgical.png')
+img_mask = io.imread(img_mask_path)
 img_mask = transform.resize(img_mask,(x,y,z))
-img_real = io.imread('data/faces_from_camera/person_2_111_mask/img_face_1.png')
+img_real = io.imread(img_real_path)
 img_real = transform.resize(img_real,(x,y,z))
 
 def image_show(image, nrows=1, ncols=1, cmap='gray'):
