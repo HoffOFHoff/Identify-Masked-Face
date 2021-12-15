@@ -33,12 +33,10 @@ The three milestones we needed to overcome in the project.
 
 ## Environment Organization
 We use python 3.6 as our language.
-The basic toolboxs（such as Caffe、TensorFlow and Torch/PyTorch in OpenCV）need to be pip in the python system.
+The basic toolboxs（such as OpenCV, dlib, face_recognition）need to be pipped in the python system.
 ```
 pip install opencv-python
 pip install opencv-contrib-python
-pip install pytesseract
-pip install torch torchvision
 pip install python-utils
 ```
 We also require
