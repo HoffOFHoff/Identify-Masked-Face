@@ -4,8 +4,8 @@ This is a facial identification project for the EN.540.635 “Software Carpentry
 
 
 # Project Topic:
-It has been the third year since Covid-19's outbreak, we have all experienced a lot of incoveniences during this part of the time.
-A great deal of face recognition softwares which used to work have started to face difficulties since people are now wearing masks, thus, in this project we aim to recognize people faces with masks on and compare them with the faces without masks.
+It has been the third year since Covid-19's outbreak, we have all experienced a lot of inconveniences during this part of the time.
+A great deal of face recognition software which used to work have started to face difficulties since people are now wearing masks, thus, in this project we aim to recognize people faces with masks on and compare them with the faces without masks.
 The three milestones we needed to overcome in the project.  
 1.Face identification.  
 2.Mask the face.  
@@ -32,18 +32,16 @@ The three milestones we needed to overcome in the project.
 
 
 ## Environment Organization
-We use python 3.6 as our language.
-The basic toolboxs（such as OpenCV, dlib, face_recognition）need to be pipped in the python system.
-```
-pip install opencv-python
-pip install opencv-contrib-python
-pip install python-utils
-```
+We use python 3.8.8 as our language.
+The basic toolboxes（such as OpenCV, dlib, face_recognition）need to be pipped in the python system.
 We also require
 dlib==19.17.0
+OpenCV==4.5.4
 numpy==1.21.3
 scikit-image==0.18.3
-pandas==1.3.4
+face_recognition==1.2.3
+
+## How to use the code
 
 # Support Information
 
@@ -52,14 +50,16 @@ pandas==1.3.4
 2. Ziying Xu, zxu92@jh.edu, HoffOFHoff
 
 ## The testing models:
-The real facial model is storaged here: [Models](https://pages.github.com/)
+The real facial model is stored here: [Models](https://pages.github.com/)
 
 ## Important Reference for this subject
-> There are some reference from some amazing groups worldwide, and we will give our superior respect to those scientists.  
+> The inspiring ideas from amazing groups worldwide helped us through this this project, we would like to give them our superior respect.
 > JDAI opensource based on PyTorch:  https://github.com/JDAI-CV/FaceX-Zoo.   
-> Methods such as MTCNN Mobilenet and Facenet were used for face mask detection and recognition： https://github.com/mext169/detect-and-recognize-mask-face.   
-> Wear the mask on people face: https://github.com/jacke121/MaskTheFace.   
+> Methods such as MTCNN Mobilenet and Facenet were used for face mask detection and recognition： https://github.com/mext169/detect-and-recognize-mask-face.
+> Face recognition using the camera https://github.com/coneypo/Dlib_face_recognition_from_camera
+> Wear the mask on people face: https://github.com/jacke121/MaskTheFace.
+> Face recognition https://towardsdatascience.com/building-a-face-recognizer-in-python-7fd6630c6340
+> https://scikit-image.org/
 
-# Acknowledagement 
-This is an interesting class, and we learned a lot.  
-**Thank for our teacher Divya Sharma.** We are eternally grateful for your patience and rigorous research attitude. 
+# Acknowledgement 
+**Special thanks towards our teacher Divya Sharma.** We are very grateful for your patience and rigorous research attitude. 
