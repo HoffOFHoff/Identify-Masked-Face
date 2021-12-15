@@ -3,10 +3,10 @@ from PIL import Image, ImageDraw
 import numpy as np
 import os
 import re
+import glob
 
 # Load the png file and use face_recognition to get the numpy type
-image = face_recognition.load_image_file(
-    os.path(glob.glob('data/faces_from_camera/'+'\*.png')))
+image = face_recognition.load_image_file(os.path(glob.glob('data/faces_from_camera/'+'\*.png')))
 # image = face_recognition.load_image_file("test2.png")
 
 # Find facial features with landmarks function

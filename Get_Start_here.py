@@ -37,7 +37,7 @@ from skimage import io
 from PIL import Image
 
 # import some function in other document
-from Mask_adding import mask_img, get_distance_from_point_to_line
+from Mask_adding import mask_img
 from GUI import show_GUI
 from Samility_detect import image_show
 from worked import show_the_user
