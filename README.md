@@ -28,7 +28,11 @@ The three milestones we needed to overcome in the project.
 # Project Arrangement
 
 ## TimeTable
-![image](https://user-images.githubusercontent.com/)
+11.30-12.5 Previous work reading, brain storming, face recognition and obtaining landmarks
+12.4-12.7 Adding mask to faces and start face comparing
+12.8-12.13 Making GUI and completing face comparing
+12.13-12.15 Wrap up and writing README
+12.16 Release
 
 
 ## Environment Organization
