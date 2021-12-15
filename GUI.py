@@ -48,7 +48,8 @@ class Face_Register:
         self.font = cv2.FONT_HERSHEY_COMPLEX
 
         # Pathway setting for the GUI
-        self.path_photos = "data/faces_from_camera/"
+        # self.path_photos = "data/faces_from_camera/"
+        self.path_photos = "data/faces_real_masked/"
         self.current_face_path = ""
 
         # Current frame and face ROI position
