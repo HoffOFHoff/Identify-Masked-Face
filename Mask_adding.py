@@ -3,34 +3,42 @@ from PIL import Image, ImageDraw
 import numpy as np
 import os
 import re
+import glob
 
-# Load the png file and use face_recognition to get the numpy type
-image = face_recognition.load_image_file(
-    os.path.join('data/faces_from_camera/person_1_111', "img_face_1.png"))
+def find_landmasks():
 
-# Find facial features with landmarks function
-face_landmarks_list = face_recognition.face_landmarks(image)
+    # Load the png file and use face_recognition to get the numpy type
+    list_of_user = glob.glob(r"data/faces_from_camera/*/*.png")
+    print(list_of_user)
+    print(list_of_user[0])
+    ori_img_dir=os.path.abspath(list_of_user[0])
 
-# Use PIL imagedraw object to mark points on the face
-marked_face = Image.fromarray(image)
-signal = ImageDraw.Draw(marked_face)
+    image = face_recognition.load_image_file(ori_img_dir)
+
+    # Find facial features with landmarks function
+    face_landmarks_list = face_recognition.face_landmarks(image)
+
+    # Use PIL imagedraw object to mark points on the face
+    marked_face = Image.fromarray(image)
+    signal = ImageDraw.Draw(marked_face)
 
 
-# Show the location of each facial feature in this image
-for face_landmarks in face_landmarks_list:
-    # for facial_feature in face_landmarks.keys():
-    #     print("The {} in this face has the following points: {}".format(
-    #         facial_feature, face_landmarks[facial_feature]))
+    # Show the location of each facial feature in this image
+    for face_landmarks in face_landmarks_list:
+        # for facial_feature in face_landmarks.keys():
+        #     print("The {} in this face has the following points: {}".format(
+        #         facial_feature, face_landmarks[facial_feature]))
 
-    # Let's trace out each facial feature in the image with a point!
-    for facial_feature in face_landmarks.keys():
-        signal.point(face_landmarks[facial_feature])
+        # Let's trace out each facial feature in the image with a point!
+        for facial_feature in face_landmarks.keys():
+            signal.point(face_landmarks[facial_feature])
 
-facelandmarks = []
-for key in face_landmarks:
-    facelandmarks.append(face_landmarks[key])
-# Show the picture with landmarks
-# marked_face.show()
+    facelandmarks = []
+    for key in face_landmarks:
+        facelandmarks.append(face_landmarks[key])
+    # Show the picture with landmarks
+    # marked_face.show()
+    return facelandmarks
 
 
 def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
@@ -124,23 +132,27 @@ def get_distance_from_point_to_line(point, line1, line2):
 
 
 if __name__ == '__main__':
-    ori_img_dir="data/faces_from_camera/person_1_111/img_face_1.png"
-    
+    facelandmarks = find_landmasks()
+    list_of_user = glob.glob(r"data/faces_from_camera/*/*.png")
+    print(list_of_user)
+    print(list_of_user[0])
+    ori_img_dir=os.path.abspath(list_of_user[0])
+
     mask_img(ori_img_dir, mask_img_dir="images/surgical.png",
              facelandmarks=facelandmarks)
-    mask_img(ori_img_dir, mask_img_dir="images/cloth.png",
-             facelandmarks=facelandmarks)
-    mask_img(ori_img_dir, mask_img_dir="images/surgical_green.png",
-             facelandmarks=facelandmarks)
-    mask_img(ori_img_dir, mask_img_dir="images/N95.png",
-             facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir, mask_img_dir="images/cloth.png",
+    #          facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir, mask_img_dir="images/surgical_green.png",
+    #          facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir, mask_img_dir="images/N95.png",
+    #          facelandmarks=facelandmarks)
     # mask_img(ori_img_dir="data/faces_from_camera/img_face_3.png", mask_img_dir="images/N95.png",
     #      facelandmarks=facelandmarks)
-    mask_img(ori_img_dir, mask_img_dir="images/surgical_blue.png",
-             facelandmarks=facelandmarks)
-    mask_img(ori_img_dir, mask_img_dir="JHU_Mask_1.png",
-             facelandmarks=facelandmarks)
-    mask_img(ori_img_dir, mask_img_dir="images/JHU_Mask_2.png",
-             facelandmarks=facelandmarks)
-    mask_img(ori_img_dir, mask_img_dir="images/JHU_Mask_3.png",
-             facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir, mask_img_dir="images/surgical_blue.png",
+    #          facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir, mask_img_dir="JHU_Mask_1.png",
+    #          facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir, mask_img_dir="images/JHU_Mask_2.png",
+    #          facelandmarks=facelandmarks)
+    # mask_img(ori_img_dir, mask_img_dir="images/JHU_Mask_3.png",
+    #          facelandmarks=facelandmarks)
