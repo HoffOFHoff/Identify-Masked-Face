@@ -3,11 +3,10 @@ from PIL import Image, ImageDraw
 import numpy as np
 import os
 import re
-import glob
 
 # Load the png file and use face_recognition to get the numpy type
-image = face_recognition.load_image_file(os.path(glob.glob('data/faces_from_camera/'+'\*.png')))
-# image = face_recognition.load_image_file("test2.png")
+image = face_recognition.load_image_file(
+    os.path.join('data/faces_from_camera/person_1_111', "img_face_1.png"))
 
 # Find facial features with landmarks function
 face_landmarks_list = face_recognition.face_landmarks(image)
@@ -31,7 +30,7 @@ facelandmarks = []
 for key in face_landmarks:
     facelandmarks.append(face_landmarks[key])
 # Show the picture with landmarks
-marked_face.show()
+# marked_face.show()
 
 
 def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
@@ -112,7 +111,7 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     # Adding the mask to the picture
     face_pic.paste(mask_pic_emp, (int(box_x), int(box_y)), mask_pic_emp)
     face_pic.show()
-    print("here it is %s, with mask is %s" % (face_name, mask_type))
+    print("here it is %s, and the mask type is %s" % (face_name, mask_type))
     face_pic.save(os.path.join('data/Masked_faces/', "%s_%s" %
                                (face_name, mask_type) + ".png"))
     return face_pic
@@ -125,22 +124,23 @@ def get_distance_from_point_to_line(point, line1, line2):
 
 
 if __name__ == '__main__':
+    ori_img_dir="data/faces_from_camera/person_1_111/img_face_1.png"
     
-    mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/surgical.png",
+    mask_img(ori_img_dir, mask_img_dir="images/surgical.png",
              facelandmarks=facelandmarks)
-    mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/cloth.png",
+    mask_img(ori_img_dir, mask_img_dir="images/cloth.png",
              facelandmarks=facelandmarks)
-    mask_img(ori_img_dir="data/faces/test2.png", mask_img_dir="images/surgical_green.png",
+    mask_img(ori_img_dir, mask_img_dir="images/surgical_green.png",
              facelandmarks=facelandmarks)
-    mask_img(ori_img_dir="data/faces/img_face_3.png", mask_img_dir="images/N95.png",
+    mask_img(ori_img_dir, mask_img_dir="images/N95.png",
              facelandmarks=facelandmarks)
-    mask_img(ori_img_dir="data/faces/img_face_3.png", mask_img_dir="images/N95.png",
-         facelandmarks=facelandmarks)
-    mask_img(ori_img_dir="data/faces/img_face_3.png", mask_img_dir="images/surgical_blue.png",
+    # mask_img(ori_img_dir="data/faces_from_camera/img_face_3.png", mask_img_dir="images/N95.png",
+    #      facelandmarks=facelandmarks)
+    mask_img(ori_img_dir, mask_img_dir="images/surgical_blue.png",
              facelandmarks=facelandmarks)
-    mask_img(ori_img_dir="data/faces/img_face_3.png", mask_img_dir="images/JHU_Mask_1.png",
+    mask_img(ori_img_dir, mask_img_dir="JHU_Mask_1.png",
              facelandmarks=facelandmarks)
-    mask_img(ori_img_dir="data/faces/img_face_3.png", mask_img_dir="images/JHU_Mask_2.png",
+    mask_img(ori_img_dir, mask_img_dir="images/JHU_Mask_2.png",
              facelandmarks=facelandmarks)
-    mask_img(ori_img_dir="data/faces/img_face_3.png", mask_img_dir="images/JHU_Mask_3.png",
+    mask_img(ori_img_dir, mask_img_dir="images/JHU_Mask_3.png",
              facelandmarks=facelandmarks)
