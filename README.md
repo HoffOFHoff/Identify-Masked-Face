@@ -1,22 +1,28 @@
 # Identify-Masked-Face
-This is a facial identification project for the EN.540.635 “Software Carpentry”. People need to maintain a certain social distance within the ongoing global pandemic of COVID-19, people have to wear mask. So in our project, we create a platform where the identification of masked face is possible.   
+This is a facial identification project for the EN.540.635 “Software Carpentry”. 
 
 
 
 # Project Topic:
-We will XXXXXXXXXXX
-Here is the three milestone need to be overcome in our project.  
+It has been the third year since Covid-19's outbreak, we have all experienced a lot of incoveniences during this part of the time.
+A great deal of face recognition softwares which used to work have started to face difficulties since people are now wearing masks, thus, in this project we aim to recognize people faces with masks on and compare them with the faces without masks.
+The three milestones we needed to overcome in the project.  
 1.Face identification.  
 2.Mask the face.  
-3.Identify the Masked face.  
+3.Identify and compare the masked face with the unmasked face.  
 
 
 
 #### The procedure of 1.Face identification:
+1.We used a package within python/face_recognition to deal with the problem.
 
 #### The procedure of 2.Mask the face:
+1.Obtain raw mask pictures with photoshop
+2.Use the recognized face and its landmarks in step one
+3.Put the mask in place using 
 
-#### The procedure of 3.Identify the Masked face:
+
+#### The procedure of 3.Identify and compare the masked face with the unmasked face.  
 1.Get the raw facial data.  
 2.Find the 68 point.  
 3.Identify important point.  
