@@ -19,11 +19,11 @@ The three milestones we needed to overcome in the project.
 #### The procedure of 2.Mask the face:
 1.Obtain raw mask pictures with photoshop
 2.Use the recognized face and its landmarks in step one
-3.Put the mask on to proper places 
+3.Put the mask on to the face by attaching them to proper landmarks
 
 
 #### The procedure of 3.Identify and compare the masked face with the unmasked face.  
-1.G
+1.
 
 # Project Arrangement
 
