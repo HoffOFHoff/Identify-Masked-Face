@@ -11,13 +11,10 @@ from skimage import io
 from PIL import Image
 
 
-img = io.imread('data/faces/img_face_1.png')
-img_mask = io.imread('data/Masked_faces/img_face_3_N95.png')
-img_real = io.imread('data/Masked_faces/img_face_3_surgical_blue.png')
+img = io.imread('data/faces_from_camera/person_1_111/img_face_1.png')
+img_mask = io.imread('data/Masked_faces/person_1_111_surgical.png')
+img_real = io.imread('data/faces_from_camera/person_2_111_mask/img_face_1.png')
 
-print(img_mask.shape)
-print(img.shape)
-print(img_real.shape)
 
 def image_show(image, nrows=1, ncols=1, cmap='gray'):
     fig, ax = plt.subplots(nrows=nrows, ncols=ncols, figsize=(14, 14))
