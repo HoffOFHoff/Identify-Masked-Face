@@ -10,15 +10,10 @@ from skimage import transform,data
 from skimage import io
 from PIL import Image
 
-# the_real = 'data/faces_real_masked/person_1_RealZiying/img_face_2.png'
 
-img_real = io.imread('data/faces_real_masked/person_2_RealZiying2/img_face_1.png')
-img_real=transform.resize(img_real, (174, 174))
-
-
-img = io.imread('data/faces_from_camera/person_1_white_hat_ziying/img_face_3.png')
-img_mask = io.imread('data/Masked_faces/person_1_white_hat_ziying_surgical_blue.png')
-# img_real = io.imread('data/faces_real_masked/person_1_RealZiying/img_face_2.png')
+img = io.imread('data/faces/img_face_1.png')
+img_mask = io.imread('data/Masked_faces/img_face_3_N95.png')
+img_real = io.imread('data/Masked_faces/img_face_3_surgical_blue.png')
 
 print(img_mask.shape)
 print(img.shape)
@@ -62,8 +57,4 @@ if ssim_real - ssim_masked < 0.1:
     print('the same person')
 
 plt.tight_layout()
-
-plt.savefig('comparison_plot.png', bbox_inches='tight')
 plt.show()
-
-
