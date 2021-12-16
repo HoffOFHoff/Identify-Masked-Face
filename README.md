@@ -27,25 +27,25 @@ We will add mask on every face we have already capture in the part1.GUI.
 
 #### The procedure of 3.Identify and compare the masked face with the unmasked face.  
 In this project, we want to write one function that can compare the 
-similarity between our artificial masked artificial face with the masked face
-in our life. Then we will show the SSIM parameter as the indicator of evaluation.
-The img_show() function will be used in the mainbody--FinalVersion.py and the picture
+similarity between our virtual masked face and the face wearitng a mask
+in our life. Then we calculate the SSIM parameter, it works as the indicator of evaluation.
+The img_show() function will be used in the mainbody--Interface.py and the picture
 will be saved in our Identify-Masked-Face project. 
-You could see that the faked masked face is close to the real masked face, and
-is closer in difference.
+You could see that the virtual masked face is similar with the real masked face.
 1. We generate the interface of the img_show comparison.
 2. Use skimage to detect the MSE and SSIM parameter to check the difference
-3. The comparison will show if it think that those artificial mask are the 
-sanme with the real masked face in daily life.
+3. The comparison will show if it think that those virtual mask are the 
+same with the real masked face in daily life.
 
 #### The procedure of 4. Identify real masked face using webcam
 In this project, we want to show a placid everyday scene -- you will stare at the 
-webcam, and here is a line lettering: Who you are.  
-Our project could recognize who you are even when you wear mask! The most exciting thing is that: we do not need to use model or machine learning method to make it.  
-It won't take up a lot of your computer's memory to train complex models! We only need the package self-contained tools in python: Face_recognition.  
-Then we use artificial masked face as the new model.  
-Is it cool?  
-Now let's enjoy it!  
+webcam, and it doesn't recognize you because you are wearing a mask. Our project could recognize who you
+are even when you wear mask!
+It won't take up a lot of your computer's memory to train complex models! We only need 
+the packages which are self-contained tools in python: Face_recognition. Then we use virtual
+masked faces as the new model.
+Isn't that cool?
+Now let's enjoy it!
 
 1. The openCV is used in the video capture
 2. Draw a rectangle around the face. Input text labels with a name below the face
@@ -77,17 +77,17 @@ The machine leaning model is sel-contained in the face_recognition package.
 
 ## How to use the code
 **Notice: Whenever you want leave, you could type q!**  
-1. Open the FinalVersion.py  
-2. Click and Run code  
+1. Open Interface.py.  
+2. Click and Run code.  
 3. Follow the instruction on the command  
-4. Now please take off your mask and type g and ready to GO! You will take photo.  
-5. Now you will see your artificial masked face, which is added by our code.  
-6. Now you could type l and come to second setp  
-7. Now you could take on your mask and take new photo  
-8. Now you could see the comporison.png show our result
-9. Now you could see the video webcam interface. You could find your name is showed under your face. When you wear mask, it will show name like 'JackMASKED'. When you do not wear anthing, it will show the first name you type in.
+4. Now please take off your mask and type g and you are ready to GO! You will take a photo of yourself.  
+5. Now you will see your virtual masked face, which is added by our code.  
+6. Now you can type l and come to step 2.  
+7. Now you can put on your mask and take a new photo.  
+8. Now you can see the comparison.png.
+9. Now you can see the video webcam interface. You can find your name showen under the red boxs. When you wear a mask, the user name you input while wearing a mask will be presented. When you present your face without a mask, it will show the first name you typed in
 
-> You might not use _ or / in your input name, which might make difficult in our path recognition.  
+> You should not use _ or / in your input name, which might make difficult in our path recognition.  
 
 
 # Support Information

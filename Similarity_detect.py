@@ -13,8 +13,8 @@ will be saved in our Identify-Masked-Face project.
 You could see that the virtual masked face is similar with the real masked face.
 1. We generate the interface of the img_show comparison.
 2. Use skimage to detect the MSE and SSIM parameter to check the difference
-3. The comparison will show if it think that those artificial mask are the 
-sanme with the real masked face in daily life.
+3. The comparison will show if it think that those virtual mask are the 
+same with the real masked face in daily life.
 '''
 
 import numpy as np
@@ -50,16 +50,16 @@ def img_show():
         
         img_mask_path: *str*
             This varible store the absolute path of the photo which we add an 
-            artificial mask on it. 
+            virtual mask on it. 
             (ex. /Users/xuziying/Desktop/data/Masked_faces/person_1_chaobo_surgical.png).        
         
         ssim_masked: *turple*
-            The complex model to determine the similarity between the artificial masked
+            The complex model to determine the similarity between the virtual masked
             picture and the real face without mask.
 
         ssim_real: *turple*
             The complex model to determine the similarity between the real face with
-            mask and the artificial face with mask.
+            mask and the virtual face with mask.
 
     **Returns**
 

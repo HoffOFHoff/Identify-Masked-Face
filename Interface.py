@@ -8,7 +8,7 @@ In this project, we want to show a placid everyday scene -- you will stare at th
 webcam, and it doesn't recognize you because you are wearing a mask. Our project could recognize who you
 are even when you wear mask!
 It won't take up a lot of your computer's memory to train complex models! We only need 
-the packages which are self-contained tools in python: Face_recognition. Then we use artificial 
+the packages which are self-contained tools in python: Face_recognition. Then we use virtual
 masked faces as the new model.
 Isn't that cool?
 Now let's enjoy it!
@@ -58,7 +58,7 @@ def interface():
             logging.basicConfig(level=logging.INFO)
             Face_Register_con = Face_Register()
             Face_Register_con.run()
-            print("Now you will see your face with an artificial mask")
+            print("Now you will see your face with an virtual mask")
             print("///////////////////////////////")       
             from Mask_adding import mask_img,find_landmasks
             facelandmarks = find_landmasks()
