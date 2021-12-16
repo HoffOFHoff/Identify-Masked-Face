@@ -42,7 +42,7 @@ def interface():
 
     '''
     print("1. Please take a photo of your self, enter 'g' ")
-    print("2. Appluy facial recognition, enter 'l' ")
+    print("2. Apply facial recognition, enter 'l' ")
     print("If you want to exit, enter 'q' ")
     test = True
     # show the user interface 
