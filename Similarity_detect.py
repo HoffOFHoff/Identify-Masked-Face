@@ -30,10 +30,10 @@ from PIL import Image
 
 def img_show():
     '''
-    Apply skimage to determine the similarity of the line structure of an image. 
+    Apply skimage function to determine the similarity of the line structure of an image. 
     It needs both the original image and your newly-masked image and . 
     There will be a figure showen to compare your face with
-    our model. In the meanwhile, there will be one figure showing the detailed 
+    our model. Meanwhile, there will be one figure showing the detailed 
     comparison which saved in-situ.
 
     **Parameters**

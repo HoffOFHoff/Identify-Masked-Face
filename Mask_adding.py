@@ -4,7 +4,7 @@ EN.640.635 Software Carpentry
 Final_Project -Identify-Masked-Face-
 
 Part 2.Mask_adding 
-We will add mask on every face we have already capture in the part1.GUI.
+We will add mask on every face we have already captured in part1.GUI.
 1. Obtain raw mask pictures with photoshop  
 2. Use the recognized face and its landmarks in step one  
 3. Put the mask on to the face by attaching them to proper landmarks 
@@ -70,8 +70,6 @@ def find_landmasks():
     facelandmarks = []
     for key in face_landmarks:
         facelandmarks.append(face_landmarks[key])
-    # Show the picture with landmarks
-    # marked_face.show()
     return facelandmarks
 
 
@@ -99,8 +97,6 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     '''
 
     # We load in the mask and the person's photo
-    # ori_img_dir = "test3.png"
-    # mask_img_dir = "surgical.png"
     face_pic = Image.open(ori_img_dir)
     mask_pic = Image.open(mask_img_dir)
 
@@ -117,9 +113,7 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
     chin_bottom = facelandmarks[0][8]
     chin_bottom_vector = np.array(chin_bottom)
 
-    # We split the mask into left and right and give a factor
-    # to stretch the mask
-    # to make it suit the face better
+    # We split the mask into left and right and give a factor to stretch the mask to make it suit the face better
     width = mask_pic.width
     height = mask_pic.height
     width_ration = 1.1  # Factor for testing

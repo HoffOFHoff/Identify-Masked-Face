@@ -15,11 +15,11 @@ The three milestones we needed to overcome in the project.
 
 
 #### The procedure of 1.Face identification:
-Show the GUI for users to take photos while they wear mask or they do not wear mask.  
+Show the GUI for users to take photos while they wear masks or they do not wear masks.  
 1.We used a package within python/face_recognition to deal with the problem.
 
 #### The procedure of 2.Mask the face:
-We will add mask on every face we have already capture in the part1.GUI.  
+We will add mask on every face we have already captured in the part1.GUI.  
 1. Obtain raw mask pictures with photoshop  
 2. Use the recognized face and its landmarks in step one  
 3. Put the mask on to the face by attaching them to proper landmarks  

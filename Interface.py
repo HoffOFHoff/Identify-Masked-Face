@@ -6,7 +6,7 @@ Final_Project -Identify-Masked-Face-
 
 In this project, we want to show a placid everyday scene -- you will stare at the 
 webcam, and it doesn't recognize you because you are wearing a mask. Our project could recognize who you
-are even when you wear mask!
+are even when you wear a mask!
 It won't take up a lot of your computer's memory to train complex models! We only need 
 the packages which are self-contained tools in python: Face_recognition. Then we use virtual
 masked faces as the new model.
@@ -14,7 +14,7 @@ Isn't that cool?
 Now let's enjoy it!
 '''
 # Firstly, we need to import some useful packges for our project.
-# Our project contains five parts. The Interface as the main document to run the programe,
+# Our project contains five parts. The Interface as the main document to run the programme,
 # GUI takes all photos and store them, Mask_adding puts on virtual masks for recorded faces,
 # Similarity_detect compares the images to present its similarity, worked identifies your face with the camera. 
 # The merged version of the face recognition project
@@ -30,10 +30,8 @@ def interface():
     more readable and visible.
 
     **Parameters**
-        fptr: *str*
-            The
-        mask: *int*
-            The 
+        Instruction: *str*
+            The indicator of our steps
 
     **Returns**
         One comparison.png
@@ -50,6 +48,7 @@ def interface():
         Instruction = input('Enter your instruction:')
         if Instruction == "g":
             print("Step 1")
+            print("Please press the clear botton in the GUI before you take a picture")
             print("Now please take off your mask")
             print("We recommend you input your name in the format of 'Jack' ")
             print("Please avoid using '_' or '/' ")
@@ -80,7 +79,7 @@ def interface():
             logging.basicConfig(level=logging.INFO)
             Face_Register_con = Face_Register()
             Face_Register_con.run()
-            print("Now you can see the comporison.png showing the comparison result")
+            print("Now you can see the comparison.png showing the comparison result")
             print("///////////////////////////////") 
             from Similarity_detect import img_show
             img_show()
@@ -91,14 +90,11 @@ def interface():
             print("///////////////////////////////") 
             from worked import show_the_user
             show_the_user()
-        # Whenever you want leave, you could type q
+        # Whenever you want to leave, please type q
         if Instruction == "q":
             test = False
             print("See you!That's the end.")
             os._exit(0)
-            # f = open("The face result.txt", 'a')
-            # f.write('The same person')
-            # f.close()
 
 
 if __name__ == "__main__":

@@ -4,9 +4,9 @@ EN.640.635 Software Carpentry
 Final_Project -Identify-Masked-Face-
 
 Part 1.GUI
-Show the GUI for users to take photos while they wear mask or they do not wear mask
+Show the GUI for users to take photos while they wear masks or they do not wear masks
 1. We used a package within python/face_recognition to deal with the problem.
-2. We use openCV to capture the human face
+2. We used openCV to capture the human face
 '''
 
 import dlib
@@ -37,13 +37,13 @@ class Face_Register:
         # The window size could be modified here.
         self.window.geometry("1300x650")
 
-        # left side of the GUI
+        # Left side of the GUI
         self.frame_left = tk.Frame(self.window)
         self.label = tk.Label(self.window)
         self.label.pack(side=tk.LEFT)
         self.frame_left.pack()
 
-        # right side of the GUI
+        # Right side of the GUI
         self.frame_right = tk.Frame(self.window)
         self.label_faceinstorage = tk.Label(self.frame_right, text=str(self.existing_faces))
         self.input_name = tk.Entry(self.frame_right)

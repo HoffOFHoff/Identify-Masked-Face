@@ -5,7 +5,7 @@ Final_Project -Identify-Masked-Face-
 
 Part 4.Worked interface 
 
-1. The openCV is used in the video capture
+1. The openCV is used for video capture
 2. Draw a rectangle around the face. Input text labels with a name below the face
 3. You could find your name is showed under your face. 
 4. When you wear mask, it will show name like 'JackMASKED'. 
@@ -74,7 +74,7 @@ def show_the_user():
     names = list_of_files.copy()
 
 
-    # append those picture with face_encoding 
+    # Append those picture with face_encoding 
     for i in range(number_files):
         globals()['image_{}'.format(i)] = face_recognition.load_image_file(
             list_of_files[i],mode='RGB')
