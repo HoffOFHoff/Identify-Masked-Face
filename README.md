@@ -34,7 +34,7 @@ will be saved in our Identify-Masked-Face project.
 You could see that the virtual masked face is similar with the real masked face.
 1. We generate the interface of the img_show comparison.
 2. Use skimage to detect the MSE and SSIM parameter to check the difference
-3. The comparison will show if it think that those virtual masked face are the same with the real masked face in daily life.
+3. The comparison will show if it thinks that those virtual masked face are the same with the real masked face in daily life.
 When we compare the virtual mask face with the real mask face, if the MSE difference is small and SSIM is close to 1, it indicates that they are similar, which proves that the real mask face is similar with the original face.
 
 ![Here is our comparison](Readme_Fig/comparison.png)
