@@ -112,8 +112,10 @@ def img_show():
     # Use the model of MSE and SSIM to compare the similarity.
     # SSIM means structural similarity index measure.
     # MSE means Mean Squared Error.
-    # When SSIM([0,1]) is close to 0, the two fig are similar and vice versa.
+    # When SSIM([0,1]) is close to 1, the two fig are similar and vice versa.
     # WHen MSE is close to 0, the two fig are similar and vice versa.
+    # When we compare the virtual mask face with the real mask face, if the MSE difference is small, 
+    # it indicates that they are similar, which proves that the real mask face is similar with the original face.
     ax[0].imshow(img, cmap=plt.cm.gray, vmin=0, vmax=1)
     ax[0].set_xlabel(f'MSE: {mse_none:.2f}, SSIM: {ssim_none:.2f}')
     ax[0].set_title('Original image')
