@@ -58,7 +58,7 @@ def interface():
             logging.basicConfig(level=logging.INFO)
             Face_Register_con = Face_Register()
             Face_Register_con.run()
-            print("Now you will see your face with an virtual mask")
+            print("Now you will see your face with a virtual mask")
             print("///////////////////////////////")       
             from Mask_adding import mask_img,find_landmasks
             facelandmarks = find_landmasks()
