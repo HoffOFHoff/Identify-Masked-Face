@@ -42,7 +42,7 @@ def interface():
 
     '''
     print("1. Please take a photo of your self, enter 'g' ")
-    print("2. Appluy facial recognition, enter 'l' ")
+    print("2. Apply facial recognition, enter 'l' ")
     print("If you want to exit, enter 'q' ")
     test = True
     # show the user interface 
@@ -58,7 +58,7 @@ def interface():
             logging.basicConfig(level=logging.INFO)
             Face_Register_con = Face_Register()
             Face_Register_con.run()
-            print("Now you will see your face with an virtual mask")
+            print("Now you will see your face with a virtual mask")
             print("///////////////////////////////")       
             from Mask_adding import mask_img,find_landmasks
             facelandmarks = find_landmasks()
