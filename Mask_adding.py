@@ -19,17 +19,25 @@ import glob
 
 def find_landmasks():
     '''
-    Apply face_recognition packag in the 
+    Apply face_recognition package function 'facelandmasks' to find the
+    place where we could add mask.
 
     **Parameters**
         list_of_user: *str*
-            The
-        mask: *int*
-            The 
+            The list which store the path of the photo taken
+        ori_img_dir: *str*
+            The abspath for the user saved face direction
+        image: *ndarray*
+            The image will be saved as the form of array
+        marked_face: *Image*
+            The face which have be transformed from array to image
+        facelandmarks: *List*
+            The landmarks in our face
+        
 
     **Returns**
 
-        None
+        facelandmarks
 
     For extra info:
 
@@ -55,10 +63,6 @@ def find_landmasks():
 
     # Show the location of each facial feature in this image
     for face_landmarks in face_landmarks_list:
-        # for facial_feature in face_landmarks.keys():
-        #     print("The {} in this face has the following points: {}".format(
-        #         facial_feature, face_landmarks[facial_feature]))
-
         # Let's trace out each facial feature in the image with a point!
         for facial_feature in face_landmarks.keys():
             signal.point(face_landmarks[facial_feature])
@@ -72,12 +76,27 @@ def find_landmasks():
 
 
 def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
-    """
-    :param ori_img_dir: Contains the path of the person's photo
-    :param mask_img_dir: Contains the path of a mask photo
-    :param facelandmarks: The 72 key points on a human face
-    :return: A photo with the person wearing a mask
-    """
+    '''
+    Apply numpy function 'facelandmasks' to find the
+    place where we could add mask. We split the mask
+    into left and right and give a factor to stretch the 
+    mask and make it suit the face.
+
+    **Parameters**
+        face_pic: *Image*
+            Contains the path of the person's photo
+        ori_img_dir: *str*
+            The abspath for the user saved face direction
+        face_name: *str*
+            Contains the path of a mask photo
+        facelandmarks: *List*
+            The 72 key points on a human face
+
+    **Returns**
+
+        A photo with the person wearing a mask
+
+    '''
 
     # We load in the mask and the person's photo
     # ori_img_dir = "test3.png"
@@ -156,6 +175,23 @@ def mask_img(ori_img_dir, mask_img_dir, facelandmarks):
 
 
 def get_distance_from_point_to_line(point, line1, line2):
+    '''
+    Get the distance from point to line
+
+    **Parameters**
+        line2: *List*
+            The place where chin located
+        line1: *List*
+            The place where nose located
+        point: *List*
+            The left or right point in the face
+
+
+    **Returns**
+        distance: *int*
+
+
+    '''
     distance = np.abs((line2[1] - line1[1]) * point[0] + (line1[0] - line2[0]) * point[1] + (line2[0] - line1[0]) * line1[1] + (line1[1] -
                                                                                                                                 line2[1]) * line1[0]) / np.sqrt((line2[1] - line1[1]) * (line2[1] - line1[1]) + (line1[0] - line2[0]) * (line1[0] - line2[0]))
     return int(distance)
