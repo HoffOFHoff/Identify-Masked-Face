@@ -25,7 +25,7 @@ from PIL import Image
 # The main body of our project
 def interface():
     '''
-    Combine part1.GUI, part2.Masked_adding, part3.Similarity_detect and
+    Combine part1.GUI, part2.Mask_adding, part3.Similarity_detect and
     part4.worked together, so it could save time and make the whole project
     more readable and visible.
 

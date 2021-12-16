@@ -4,19 +4,12 @@ EN.640.635 Software Carpentry
 Final_Project -Identify-Masked-Face-
 
 Part 4.Worked interface 
-Here we want to show a placid everyday scene -- 
-you will stare at the webcam, and here is a line lettering: 
-Who you are.  Our project could recognize who you are even when 
-you wear mask! The most exciting thing is that: we do not need to use
-model or machine learning method to make it. 
 
 1. The openCV is used in the video capture
 2. Draw a rectangle around the face. Input text labels with a name below the face
 3. You could find your name is showed under your face. 
 4. When you wear mask, it will show name like 'JackMASKED'. 
 5. When you do not wear anthing, it will show the first name you type in.
-
-Now let's enjoy it!
 '''
 
 import face_recognition
@@ -33,7 +26,7 @@ import re
 
 def show_the_user():
     '''
-    Apply the photo you just take and use it in the video
+    Apply the photo you just took and use it in the video
     capture. It will show the user name.
 
     **Parameters**

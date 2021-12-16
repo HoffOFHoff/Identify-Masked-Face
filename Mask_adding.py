@@ -3,7 +3,7 @@
 EN.640.635 Software Carpentry
 Final_Project -Identify-Masked-Face-
 
-Part 2.Masked_adding 
+Part 2.Mask_adding 
 We will add mask on every face we have already capture in the part1.GUI.
 1. Obtain raw mask pictures with photoshop  
 2. Use the recognized face and its landmarks in step one  
