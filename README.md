@@ -37,6 +37,8 @@ You could see that the virtual masked face is similar with the real masked face.
 3. The comparison will show if it think that those virtual mask are the 
 same with the real masked face in daily life.
 
+![Here is our comparison](Readme_Fig/comparison.png)
+
 #### The procedure of 4. Identify real masked face using webcam
 In this project, we want to show a placid everyday scene -- you will stare at the 
 webcam, and it doesn't recognize you because you are wearing a mask. Our project could recognize who you
@@ -53,6 +55,12 @@ Now let's enjoy it!
 4. When you wear mask, it will show name like 'JackMASKED'. 
 5. When you do not wear anthing, it will show the first name you type in.
 
+![Here is our Real Face Recognition](Readme_Fig/RealFace.png)
+
+**Here Is Real Face Recognition**
+![Here is our Masked Face Recognition](Readme_Fig/MaskedFace.png)
+
+**Here Is Masked Face Recognition**
 
 # Project Arrangement
 
