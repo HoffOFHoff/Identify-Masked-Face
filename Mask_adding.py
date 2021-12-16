@@ -1,3 +1,15 @@
+# -*- coding: utf-8 -*-
+'''
+EN.640.635 Software Carpentry
+Final_Project -Identify-Masked-Face-
+
+Part 2.Masked_adding 
+We will add mask on every face we have already capture in the part1.GUI.
+1. Obtain raw mask pictures with photoshop  
+2. Use the recognized face and its landmarks in step one  
+3. Put the mask on to the face by attaching them to proper landmarks 
+'''
+
 import face_recognition
 from PIL import Image, ImageDraw
 import numpy as np
@@ -6,6 +18,24 @@ import re
 import glob
 
 def find_landmasks():
+    '''
+    Apply face_recognition packag in the 
+
+    **Parameters**
+        list_of_user: *str*
+            The
+        mask: *int*
+            The 
+
+    **Returns**
+
+        None
+
+    For extra info:
+
+        For face_recognition package:
+        *https://github.com/ageitgey/face_recognition
+    '''
 
     # Load the png file and use face_recognition to get the numpy type
     list_of_user = glob.glob(r"data/faces_from_camera/*/*.png")

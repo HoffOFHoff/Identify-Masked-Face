@@ -1,3 +1,16 @@
+# -*- coding: utf-8 -*-
+'''
+EN.640.635 Software Carpentry
+Final_Project -Identify-Masked-Face-
+
+Part 1.GUI
+Show the GUI for users to take photos while they wear mask or they do not wear mask
+1. We used a package within python/face_recognition to deal with the problem.
+2. We use openCV to capture the human face
+
+Now let's enjoy it!
+'''
+
 import dlib
 import numpy as np
 import cv2
