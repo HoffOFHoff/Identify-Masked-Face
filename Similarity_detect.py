@@ -6,12 +6,11 @@ Final_Project -The Similarity_detect
 Part 3.Similarity comparison 
 
 In this project, we want to write one function that can compare the 
-similarity between our artificial masked artificial face with the masked face
-in our life. Then we will show the SSIM parameter as the indicator of evaluation.
-The img_show() function will be used in the mainbody--FinalVersion.py and the picture
+similarity between our virtual masked face and the face wearitng a mask
+in our life. Then we calculate the SSIM parameter, it works as the indicator of evaluation.
+The img_show() function will be used in the mainbody--Interface.py and the picture
 will be saved in our Identify-Masked-Face project. 
-You could see that the faked masked face is close to the real masked face, and
-is closer in difference.
+You could see that the virtual masked face is similar with the real masked face.
 1. We generate the interface of the img_show comparison.
 2. Use skimage to detect the MSE and SSIM parameter to check the difference
 3. The comparison will show if it think that those artificial mask are the 
@@ -33,8 +32,8 @@ def img_show():
     '''
     Apply skimage to determine the similarity of the line structure of an image. 
     It needs both the original image and your newly-masked image and . 
-    There will be a figure show to compare your face with
-    our model. In the meanwhile, there will be one figure show the detailed 
+    There will be a figure showen to compare your face with
+    our model. In the meanwhile, there will be one figure showing the detailed 
     comparison which saved in-situ.
 
     **Parameters**
